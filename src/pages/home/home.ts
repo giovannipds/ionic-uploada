@@ -100,4 +100,21 @@ export class HomePage {
     })
   }
 
+  /**
+   * @public
+   * @method displayAlert
+   * @param message {string} The message to be displayed to the user
+   * @description Use the Ionic AlertController API to provide user feedback
+   * @return {none}
+   */
+  displayAlert(message : string) : void
+  {
+    let alert : any = this._ALERT.create({
+        title    : 'Heads up!',
+        subTitle : message,
+        buttons  : ['Got it']
+      });
+    alert.present();
+  }
+
 }
