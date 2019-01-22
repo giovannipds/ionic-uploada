@@ -25,7 +25,7 @@ export class ImagesProvider {
    * @private
    * @description The URI for the remote PHP script that will handle the image upload/parsing
    */
-  private _REMOTE_URI : string = "http://xampp/htdocs/ionic-uploada/php/parse-upload.php"
+  private _REMOTE_URI : string = "http://localhost/ionic-uploada/php/parse-upload.php"
   
   constructor(public http: HttpClient) {
     console.log('Hello ImagesProvider Provider');
