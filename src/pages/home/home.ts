@@ -78,4 +78,26 @@ export class HomePage {
     });
   }
 
+  /**
+   * @public
+   * @method uploadFile
+   * @description Handles uploading the selected image to the remote PHP script
+   * @return {none}
+   */
+  uploadFile() : void
+  {
+    this._IMAGES
+    .uploadImageSelection(this.image,
+                          this._SUFFIX)
+    .subscribe((res) =>
+    {
+      this.displayAlert(res.message);
+    },
+    (error : any) =>
+    {
+      console.dir(error);
+      this.displayAlert(error.message);
+    })
+  }
+
 }
