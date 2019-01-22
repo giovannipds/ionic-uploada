@@ -32,8 +32,9 @@ export class HomePage {
    */
   private _SUFFIX : string;
 
-  constructor(public navCtrl: NavController) {
-
-  }
+  constructor(public navCtrl  : NavController,
+              private _ALERT  : AlertController,
+              private _IMAGES : ImagesProvider)
+  { }
 
 }
