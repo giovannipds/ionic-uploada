@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -66,6 +66,26 @@ export class ImagesProvider {
   isCorrectFileType(file)
   {
     return (/^(gif|jpg|jpeg|png)$/i).test(file);
+  }
+
+  /**
+   * @public
+   * @method uploadImageSelection
+   * @param file {String} the file data to be uploaded
+   * @param mimeType {String} the file's MimeType (I.e. jpg, gif, png etc)
+   * @description Uses the Angular HttpClient to post the data to a remote
+   *              PHP script, returning the observable to the paarent script
+   *              allowing that to be able to be subscribed to
+   * @return {any}
+   */
+  uploadImageSelection(file : string,
+                       mimeType : string) : Observable<any>
+  {
+    let headers  : any = new HttpHeaders({'Content-Type' : 'application/oclet-stream'}),
+        fileName : any = Date.now() + '.' + mimeType,
+        options  : any = { "name" : fileName, "file" : file };
+
+    return this.http.post(this._REMOTE_URI, JSON.stringify(options), headers);
   }
 
 }
