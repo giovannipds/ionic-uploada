@@ -55,4 +55,17 @@ export class ImagesProvider {
     });
   }
 
+  /**
+   * @public
+   * @method isCorrectFileType
+   * @param file {String} The file type we want to check
+   * @description Uses a regular expression to check that the supplied file format
+   *              matches thoses specified within the method
+   * @return {any}
+   */
+  isCorrectFileType(file)
+  {
+    return (/^(gif|jpg|jpeg|png)$/i).test(file);
+  }
+
 }
